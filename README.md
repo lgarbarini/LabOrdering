@@ -4,6 +4,9 @@ This project interfaces a chrome extension and chat bot with a Google Spreadshee
 to enable streamlined ordering. This application was developed for use in
 the Tufts University SilkLab.
 
+![orderextensionsmaller2](https://cloud.githubusercontent.com/assets/480305/16212250/6952c406-3714-11e6-95cd-d1d299e66486.png)
+Trademarks: All trademarks and registered trademarks are the property of their respective owners.
+
 ##Extension and Backend
 The extension uses JS to scrape McMaster, Digikey, Fisher Scientific, Sigma Aldrich,
 and Amazon for the product description, price, and SKU. The user is
@@ -46,9 +49,9 @@ as follows:
   for Example User
   Reply yes to order!
 
-  Example User: yes
+>  Example User: yes
 
-  HUBOT: @ExampleUser Added 1 of:
+>  HUBOT: @ExampleUser Added 1 of:
   Acetone, 99.5%, 1 Gallon"
    to the Lab Order Site for: Example User
    at: Sun Jun 19 2016 12:13:17 GMT-0400 (EDT)
@@ -56,5 +59,5 @@ as follows:
 ##Known Issues
 + If Google App Script has the user run the script, the user has to have access to the spreadsheets
 + APIs are not fully JSON parseable yet
-+ HUBOT script does not do full bounds checking
++ HUBOT script does not handle unexpected input gracefully
 + Initial Google user login is clunky (opens two new popups)
