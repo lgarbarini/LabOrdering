@@ -56,8 +56,12 @@ as follows:
    to the Lab Order Site for: Example User
    at: Sun Jun 19 2016 12:13:17 GMT-0400 (EDT)
 
+ This script makes use of the [hubot-conversation](https://github.com/lmarkus/hubot-conversation) package.
+ An example package.json has been provided for reference. This was forked from [Atlassian's Triatomic package](https://github.com/hipchat/triatomic).
+
 ##Known Issues
 + If Google App Script has the user run the script, the user has to have access to the spreadsheets
 + APIs are not fully JSON parseable yet
 + HUBOT script does not handle unexpected input gracefully
 + Initial Google user login is clunky (opens two new popups)
++ Mix of Javascript and JQuery Syntax
