@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <script src="jquery.min.js"></script>
+    <script src="locate.js"></script>
+  </head>
+  <body style="height:400;width:400;">
+    <div id="form">
+      <h2 id="title"></h2>
+      <p>
+      Quantity: <br>
+      <input type="number" name=qty id="qty">
+      <p>
+      SKU: <br>
+      <select id="skus">
+      </select>
+
+      <p>
+      Price: <br>
+      <select id="prices" >
+      </select>
+
+      <p>
+      End User: <br>
+      <input type="text" name=end_user id="user">
+
+      <p>
+      <input type="text" name=vendor style="display:none;" id="vendor">
+      <input type="submit" value="Submit" id="submit-btn">
+      <input type="submit" value="Manual Entry" id="override">
+    </div>
+    <div id="output" style="height:400px;width:400px;display:none;">
+
+    </div>
+    <script src="load.js"></script>
+
+  </body>
+</html>
