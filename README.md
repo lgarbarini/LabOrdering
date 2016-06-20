@@ -21,26 +21,31 @@ also keep track of the GMail account for security purposes.
 This script allows *reordering* of previously ordered items. The intended use
 case is for reordering consumables while on the go. An example conversation is
 as follows:
-  Example User: order more acetone
 
-  HUBOT: @ExampleUser Here are previously ordered supplies:
+>  Example User: order more acetone
+
+>  HUBOT: @ExampleUser Here are previously ordered supplies:
   0: 31.48 -- Acetone, 99.5%, 1 Gallon
-  Example User: 0
 
-  HUBOT: @ExampleUser Ordering more of:
+>  Example User: 0
+
+>  HUBOT: @ExampleUser Ordering more of:
   Acetone, 99.5%, 1 Gallon
   How many do you want?
-  Example User: 1
 
-  HUBOT: @ExampleUser Ordering 1 more of:
+>  Example User: 1
+
+>  HUBOT: @ExampleUser Ordering 1 more of:
   Acetone, 99.5%, 1 Gallon
   Who is the order for (the end user)?
-  Example User: Example User
 
-  HUBOT: @ExampleUser Ordering 1 more of:
+>  Example User: Example User
+
+>  HUBOT: @ExampleUser Ordering 1 more of:
   Acetone, 99.5%, 1 Gallon
   for Example User
   Reply yes to order!
+
   Example User: yes
 
   HUBOT: @ExampleUser Added 1 of:
