@@ -5,10 +5,10 @@ module.exports = function (robot) {
 
   var switchBoard = new Conversation(robot);
   var searchUrl =
-  "DUMMY_URL?";
+  "DUMMY_URL";
 
 
-  robot.respond(/order more (.*)/, function (msg) {
+  robot.respond(/order more (.*)/i, function (msg) {
     var search_terms = msg.match[1].split(" ").join(",");
     var dialog = switchBoard.startDialog(msg);
     var request = require('request');
@@ -37,8 +37,8 @@ module.exports = function (robot) {
           item.desc +
           "\nWho is the order for (the end user)?");
           dialog.addChoice(/^(?!cancel$).*/i, function (msg4) {
-            if (/\: (.*)/i.test(msg4.match[0])) {
-              var  end_user = msg4.match[0].match(/\: (.*)/i)[1];
+            if (/silky-mcsilkface (.*)/i.test(msg4.match[0])) {
+              var  end_user = msg4.match[0].match(/silky-mcsilkface (.*)/i)[1];
             } else {
               var  end_user = msg4.match[0];
             }

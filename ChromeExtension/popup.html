@@ -24,7 +24,22 @@
       <input type="text" name=end_user id="user">
 
       <p>
-      <input type="text" name=vendor style="display:none;" id="vendor">
+      <span id="v-name" style="display:none;">Vendor: <br></span>
+      <select style="display:none;" id="vendor">
+        <option value="mcmaster">McMaster</option>
+        <option value="sigma" selected>Sigma Aldrich</option>
+        <option value="digikey">DigiKey</option>
+        <option value="fisher">Fisher Scientific</option>
+        <option value="amazon">Amazon</option>
+        <option value="grainger">Grainger</option>
+        <option value="wbmason">WB Mason</option>
+        <option value="other">Other (Please Specify)</option>
+      </select>
+      <div style="display:none;" id="other-vendor">
+        Other Vendor: <br>
+        <input type="text" name=other-vendor id="vendor-text">
+      </div>
+      <p>
       <input type="submit" value="Submit" id="submit-btn">
       <input type="submit" value="Manual Entry" id="override">
     </div>

@@ -14,4 +14,15 @@ window.setTimeout(function() {$("#override").click(function(e) {
     .replaceWith('<input type="text" name=qty id="qty" value="'+$("#qty").val()+'">');
   $("#qty")
     .replaceWith('<input type="text" name=qty id="qty" value="'+$("#qty").val()+'">');
+  $("#v-name").show();
+  $("#vendor").show();
+})}, 500);
+
+window.setTimeout(function() {$("#vendor").change(function(e) {
+  var target = $("#other-vendor");
+  if ($("#vendor").val() == "other") {
+    target.show();
+  } else {
+    target.hide();
+  }
 })}, 500);

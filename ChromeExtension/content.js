@@ -13,6 +13,10 @@ chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
       sendResponse(fisherSku());
     } else if (msg.text === 'digikey_sku') {
       sendResponse(digikeySku());
+    } else if (msg.text === 'grainger_sku') {
+      sendResponse(graingerSku());
+    } else if (msg.text === 'wbmason_sku') {
+      sendResponse(wbmasonSku());
     }
 });
 
@@ -39,16 +43,22 @@ function mcmasterSku()
 {
   var rows = {};
   rows.skus = document.querySelectorAll('div.PartNbr');
-  rows.prices = document.querySelectorAll('div.PrceTxt');
-  rows.desc = document.querySelectorAll('h3.PrsnttnNm')[0].innerText + "<br>";
+  rows.desc = document.querySelectorAll('div.PrsnttnHdrCntnr')[0].innerText + "<br>";
   try {
-    rows.desc += document.querySelectorAll('h3.PrsnttnSecondaryNm')[0].innerText;
+    rows.price = document.querySelectorAll('div.PrceTxt')[0].innerHTML;
+  } catch(err) {
+    console.log(err);
+    rows.price = "Use Manual Entry";
+  }
+
+  try {
+    rows.desc += document.querySelectorAll('div.PrsnttnSecondaryHdrCntnr')[0].innerText;
   } catch(err) {
     console.log("No Secondary Desc")
   }
   var products = [];
   var p = {sku: rows.skus[0].innerHTML,
-  price: rows.prices[0].innerHTML.replace(/(\$| Each)/gm,""),
+  price: rows.price.replace(/(\$| Each)/gm,""),
   desc: rows.desc,
   vendor: "mcmaster"}
   products.push(p);
@@ -84,7 +94,12 @@ function fisherSku()
   var prodStr = document.getElementById('gsProductId').value;
   rows.sku = prodStr.substr(prodStr.indexOf(":") + 1);
   rows.prices = document.querySelectorAll('label.price');
-  rows.desc = document.getElementById('item_header_text').innerText.replace(/[^\x00-\x7F]/g, " ");
+  if (rows.prices.length == 0) rows.prices = document.querySelectorAll('span.price');
+  try {
+    rows.desc = document.getElementById('item_header_text').innerText.replace(/[^\x00-\x7F]/g, " ");
+  } catch(err) {
+  }
+  if (rows.desc == undefined) rows.desc = document.getElementById('item_default_header_text').innerText.replace(/[^\x00-\x7F]/g, " ");
   var products = [];
   for (var i = 0; i < rows.prices.length; i++) {
         var p = {sku: rows.sku,
@@ -109,6 +124,40 @@ function digikeySku()
     price: rows.prices,
     desc: rows.desc,
     vendor: "digikey"}
+  products.push(p);
+  console.log(products);
+  return products;
+}
+
+function graingerSku()
+{
+  var rows = {};
+  rows.sku = document.querySelectorAll('[itemprop="productID"]')[0].innerText;
+  rows.prices = document.querySelectorAll('[itemprop="price"]')[0].getAttribute('content');
+  rows.desc = document.getElementsByClassName('productName')[0].innerText;
+  var products = [];
+
+  var p = {sku: rows.sku,
+    price: rows.prices,
+    desc: rows.desc,
+    vendor: "grainger"}
+  products.push(p);
+  console.log(products);
+  return products;
+}
+
+function wbmasonSku()
+{
+  var rows = {};
+  rows.sku = document.getElementById('ctl00_ContentPlaceholder1_ucProductDetail_fvProductDetail_lblItemNumber').innerText;
+  rows.prices = document.getElementById('ctl00_ContentPlaceholder1_ucProductDetail_fvProductDetail_lblSellPrice').innerText;
+  rows.desc = document.getElementsByClassName('item-name')[0].innerText;
+  var products = [];
+
+  var p = {sku: rows.sku,
+    price: rows.prices,
+    desc: rows.desc,
+    vendor: "wbmason"}
   products.push(p);
   console.log(products);
   return products;
