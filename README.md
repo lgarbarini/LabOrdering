@@ -7,7 +7,7 @@ the Tufts University SilkLab.
 ![orderextensionsmaller2](https://cloud.githubusercontent.com/assets/480305/16212250/6952c406-3714-11e6-95cd-d1d299e66486.png)
 Trademarks: All trademarks and registered trademarks are the property of their respective owners.
 
-##Extension and Backend
+## Extension and Backend
 The extension uses JS to scrape McMaster, Digikey, Fisher Scientific, Sigma Aldrich,
 and Amazon for the product description, price, and SKU. The user is
 then presented with a form which allows them to fill in the quantity and the
@@ -20,7 +20,7 @@ https://docs.google.com/spreadsheets/d/14F_PsbFHJT136J0mbI-Ud6NvmRQeJIPWxNKDkKyU
 If the ExtensionBackend.gs script is run by the end user, the Spreadsheet can
 also keep track of the GMail account for security purposes.
 
-##HUBOT script
+## HUBOT script
 This script allows *reordering* of previously ordered items. The intended use
 case is for reordering consumables while on the go. An example conversation is
 as follows:
@@ -57,12 +57,13 @@ as follows:
    at: Sun Jun 19 2016 12:13:17 GMT-0400 (EDT)
 
  This script makes use of the [hubot-conversation](https://github.com/lmarkus/hubot-conversation) package.
- An example package.json has been provided for reference. This was forked from
- [Atlassian's Triatomic package](https://github.com/hipchat/triatomic).
+ An example package.json has been provided for reference. 
 
-##Known Issues
+ A new bot is now using the Hubot slack integration.
+
+## Known Issues
 + If Google App Script has the user run the script, the user has to have access to the spreadsheets
 + APIs are not fully JSON parseable yet
 + HUBOT script does not handle unexpected input gracefully
-+ Initial Google user login is clunky (opens two new popups)
++ Initial Google user login is clunky (opens two new popups for OAuth)
 + Mix of Javascript and JQuery Syntax
